@@ -1,0 +1,18 @@
+n = 10000 # Numbers of proofs 
+m = 100 # Generation of numbers
+values = 0 
+
+for i in range(m):
+    x = np.random.uniform(-1, 1, n).tolist() # Creation of numbers in x
+    y = np.random.uniform(-1, 1, n).tolist() # Creation of numbers in y
+    
+    for j in range(n):
+        z = x[j] ** 2 + y[j] ** 2 # Use of Pythagoras theorem in order to test the position of the random point (R.P)
+        
+        if z <= 1: # If this condition is true, it equal to say that the R.P is inner the circle
+            values += 1
+    
+    float_values = float(values)
+    pi_value = (float_values * 4 / n) / m # Pi = 4 * right tries / total tries --- After it, we divide for the numbers we used.
+    
+print(round(pi_value, 4))
